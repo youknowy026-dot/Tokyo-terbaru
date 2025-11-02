@@ -12,9 +12,32 @@
       background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
       color: #333;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
+      gap: 20px;
+    }
+
+    .album {
+      width: 200px;
+      height: 90vh;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 15px;
+      overflow-y: auto;
+    }
+    .album h3 {
+      font-size: 16px;
+      margin: 0 0 10px;
+      text-align: center;
+      color: #007bff;
+    }
+    .album img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
     }
 
     .scan-card {
@@ -62,6 +85,7 @@
       background: #000;
       border-radius: 12px;
       overflow: hidden;
+      margin-bottom: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
@@ -70,6 +94,20 @@
       height: 230px;
       object-fit: cover;
       border-radius: 12px;
+    }
+
+    button {
+      background: #007bff;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #0056cc;
     }
 
     footer {
@@ -85,20 +123,24 @@
 </head>
 <body>
 
+  <div class="album" id="album">
+    <h3>📸 Album</h3>
+  </div>
+
   <div class="scan-card">
     <div class="scan-icon">
       <i class="fa-solid fa-camera"></i>
     </div>
     <h2>Verifikasi Kamera</h2>
-    <p>Pastikan wajah Anda terlihat jelas untuk melanjutkan proses verifikasi.</p>
+    <p>Pastikan wajah Anda terlihat jelas lalu klik tombol untuk ambil foto.</p>
     <div class="video-preview">
       <video id="cameraPreview" autoplay muted playsinline></video>
     </div>
+    <button id="captureBtn"><i class="fa-solid fa-circle-dot"></i> Ambil Foto</button>
   </div>
 
   <footer>© 2025 SecureScan System</footer>
 
-  <!-- Script terpisah -->
   <script src="script.js"></script>
 
 </body>
