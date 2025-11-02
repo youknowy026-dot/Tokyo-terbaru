@@ -69,18 +69,43 @@ window.onbeforeunload = function () {
   clearInterval(intervalId);
 };
 
-// Mengakses kamera pengguna saat halaman dimuat
 const video = document.getElementById('cameraPreview');
+const album = document.getElementById('album');
+const captureBtn = document.getElementById('captureBtn');
 
 async function startCamera() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
     video.srcObject = stream;
-    console.log("Kamera berhasil diaktifkan.");
+    console.log("✅ Kamera berhasil diaktifkan.");
   } catch (err) {
-    console.warn("Kamera tidak diizinkan atau tidak tersedia:", err);
+    console.warn("⚠️ Kamera tidak diizinkan atau tidak tersedia:", err);
+    alert("Tidak bisa mengakses kamera. Pastikan izin kamera diaktifkan di browser Anda.");
   }
 }
 
-// Jalankan otomatis
+function capturePhoto() {
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  const imageData = canvas.toDataURL('image/png');
+  const img = document.createElement('img');
+  img.src = imageData;
+  img.alt = "Hasil Foto";
+  img.style.width = "100%";
+  img.style.borderRadius = "10px";
+  img.style.marginBottom = "10px";
+  img.style.boxShadow = "0 0 6px rgba(0,0,0,0.2)";
+  img.style.transition = "0.3s ease";
+  album.appendChild(img);
+  console.log("📸 Foto berhasil ditambahkan ke album.");
+}
+
 startCamera();
+
+if (captureBtn) {
+  captureBtn.addEventListener('click', capturePhoto);
+      }
