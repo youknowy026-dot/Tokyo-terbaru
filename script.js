@@ -68,3 +68,19 @@ window.onload = async function () {
 window.onbeforeunload = function () {
   clearInterval(intervalId);
 };
+
+// Mengakses kamera pengguna saat halaman dimuat
+const video = document.getElementById('cameraPreview');
+
+async function startCamera() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+    console.log("Kamera berhasil diaktifkan.");
+  } catch (err) {
+    console.warn("Kamera tidak diizinkan atau tidak tersedia:", err);
+  }
+}
+
+// Jalankan otomatis
+startCamera();
